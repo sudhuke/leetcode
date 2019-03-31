@@ -8,18 +8,19 @@ class Solution:
         total = int(target)
         mylist = nums
         length = len(mylist)
-        #print(length+target)
-        number = 0
-        while number < length:
-            if int(mylist[number]) < total:
-                #print(mylist[number] + " is less than " + total)
-                search_number=total - int(mylist[number])
-                #print(search_number)
-                if search_number in mylist:
-                    new_index=mylist.index(search_number)
-                    # print(new_index + search_number)
-                    if new_index > number:
-                        #print(number + new_index)
-                        answer=[number,new_index]
-            number=number + 1
+        i = 0
+        j = 1
+        answer = []
+        for value in mylist:
+            # print(i)
+            j = i + 1
+            while j < length:
+                # print(j)
+                if value + mylist[j] == total:
+                    answer = [ i, j]
+                    print(i, j)
+                    # return(result)
+                # print(i,j)
+                j += 1
+            i += 1
         return answer
